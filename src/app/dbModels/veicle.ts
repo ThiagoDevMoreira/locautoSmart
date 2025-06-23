@@ -1,5 +1,11 @@
 type VeicleCategory = 'carro' | 'moto' | 'coletivo';
-type VeicleFuel = 'gasolina' | 'alcool' | 'eletrico' | 'hibrido' | 'flex' | 'disel';
+type VeicleFuel =
+    | 'gasolina'
+    | 'alcool'
+    | 'eletrico'
+    | 'hibrido'
+    | 'flex'
+    | 'disel';
 
 interface VeicleBase {
     id: string;

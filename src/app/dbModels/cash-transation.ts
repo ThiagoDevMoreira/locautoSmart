@@ -1,26 +1,15 @@
-export type AccountExecutionTiming = 'imediata' | 'futura';
-export type AccountImpact = 'credito' | 'debito';
-export type AccountNature =
-    | 'caixa_geral'
-    | 'caixa_local'
-    | 'conta_corrente'
-    | 'contas_a_receber'
-    | 'contas_a_pagar'
-    | 'credor'
-    | 'cliente'
-    | 'credor_generico'
-    | 'cliente_generico'
-    ;
+import * as Enum from './cashTransation_Enum';
 
 export interface MonetaryAccount {
   id: string;
   name: string;
   titularId: string;
+  titularCategory: Enum.TitularCategory;
   description: string;
   note: string;
   balanceInCents: number;
-  executionTiming: AccountExecutionTiming;
-  accountType: AccountNature;
+  executionTiming: Enum.AccountExecutionTiming;
+  accountType: Enum.AccountNature;
   createdAt: Date;
   updatedAt: Date;
   isActive: boolean;
@@ -37,13 +26,13 @@ export interface MonetaryTransaction {
 }
 
 export interface SubFlowTransaction {
-    id: string;
-    idTransaction: string;
-    note: string;
-    valueInCents: number;
-    fromAccountId: string;
-    toAccountId: string;
-    fromImpact: AccountImpact;
-    toImpact: AccountImpact;
-    createdAt: Date;
+  id: string;
+  idTransaction: string;
+  note: string;
+  valueInCents: number;
+  fromAccountId: string;
+  toAccountId: string;
+  fromImpact: Enum.AccountImpact;
+  toImpact: Enum.AccountImpact;
+  createdAt: Date;
 }
